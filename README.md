@@ -29,8 +29,7 @@ Este projeto tem como objetivo avaliar e comparar o desempenho de diferentes alg
 ---
 
 ## 📂 Estrutura do Repositório
-* `documento/`: Contém a versão em Markdown/texto do Trabalho de Graduação.
-* `notebooks/` ou `src/`: Códigos-fonte de preparação de dados, treinamento e avaliação dos modelos.
+* `Reconstruindo`
 
 ---
 
