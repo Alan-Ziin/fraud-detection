@@ -29,7 +29,37 @@ Este projeto tem como objetivo avaliar e comparar o desempenho de diferentes alg
 ---
 
 ## Estrutura do Repositório
-* `Reconstruindo`
+```text
+cartaoFraude/
+├── data/
+│   └── creditcard.csv          # não versionado — baixe pelo Kaggle
+├── src/
+│   ├── main.py                 # ponto de entrada / orquestração
+│   └── algoritmos/
+│       ├── random_forest.py
+│       ├── adaboost.py
+│       ├── catboost_modelo.py
+│       ├── lightgbm_modelo.py
+│       └── xgboost_modelo.py
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+> O `creditcard.csv` não está incluído no repositório. Baixe-o no [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) e coloque dentro de `data/` antes de rodar os scripts.
+
+### Como executar
+```bash
+pip install -r requirements.txt
+
+python src/main.py
+python src/algoritmos/random_forest.py
+python src/algoritmos/adaboost.py
+python src/algoritmos/catboost_modelo.py
+python src/algoritmos/lightgbm_modelo.py
+python src/algoritmos/xgboost_modelo.py
+```
+
 
 ---
 
