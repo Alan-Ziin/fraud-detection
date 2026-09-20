@@ -1,10 +1,13 @@
 import pandas as pd
+import time
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
 from imblearn.over_sampling import SMOTE
+
+inicio = time.time()
 
 df = pd.read_csv("../../data/creditcard.csv")
 
@@ -56,3 +59,6 @@ print(classification_report(
     y_pred,
     digits=4
 ))
+
+fim = time.time()
+print(f"\nTempo de execução: {fim - inicio:.2f} segundos")
