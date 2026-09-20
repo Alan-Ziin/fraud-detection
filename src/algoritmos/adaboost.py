@@ -11,9 +11,15 @@ inicio = time.time()
 
 df = pd.read_csv("../../data/creditcard.csv")
 
+# ==========================================
+# FEATURES E TARGET
+# ==========================================
 X = df.drop("Class", axis=1)
 y = df["Class"]
 
+# =========================================
+# DIVIDIR TREINO E TESTE
+# ==========================================
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -23,6 +29,9 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
+# =========================================
+# BALANCEAR TREINO
+# =========================================
 smote = SMOTE(random_state=42) # balancendo apenas o treino para evitar vazamento de dados
 
 X_train_res, y_train_res = smote.fit_resample(
@@ -30,10 +39,18 @@ X_train_res, y_train_res = smote.fit_resample(
     y_train
 )
 
+# =========================================
+# MODELO
+# =========================================
+
 ada = AdaBoostClassifier(
     n_estimators=100,
     random_state=42
 )
+
+# =========================================
+# TREINAR
+# =========================================
 
 print("Treinando AdaBoost...")
 
@@ -41,9 +58,16 @@ ada.fit(X_train_res, y_train_res)
 
 print("Treinamento concluído!")
 
-y_pred = ada.predict(X_test) # fazendo previsões no conjunto de teste
+# =========================================
+# PREVISÕES
+# =========================================
 
-#resultado
+y_pred = ada.predict(X_test)
+
+# =========================================
+# RESULTADOS
+# ========================================
+
 print("\n=== ADABOOST ===")
 
 print("\nMatriz de confusão:")
